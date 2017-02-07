@@ -18,6 +18,8 @@ class LoginPageLocators:
     Create Date  :  2016/12/29
     """
 
-    USERNAMEINPUTFIELD = (By.ID, "username")
-    PASSWORDINPUTFIELD = (By.ID, "password")
-    LOGINBUTTON = (By.ID, "loginButton")
+    USERNAMEINPUTFIELD                      = (By.ID, "username")
+    PASSWORDINPUTFIELD                      = (By.ID, "password")
+    LOGINBUTTON                             = (By.ID, "loginButton")
+    LOGOUTBUTTON                            = (By.XPATH, "html/body/div[1]/div/div[2]/ul/li[3]/a/i")
+    LOGOUTCONFIRMBUTTON                           = (By.ID, "isLogoutConfirm")

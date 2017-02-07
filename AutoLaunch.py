@@ -12,8 +12,7 @@ import unittest
 import logging
 import multiprocessing
 from Lib.HTMLTestRunner import HTMLTestRunner
-# from TestCase.test_LaunchOperation import LaunchOperationCase
-# from TestCase.test_LaunchLogin import LaunchLoginCase
+from WorkOrderManageSystem.WOMSTestCase.test_WOMSLogin import LaunchLoginCase
 
 
 com = CommonUtils()
@@ -25,8 +24,8 @@ logging.info("浏览器版本: %s" % com.get_browser_version())
 
 
 # 初始化测试套件并添加测试用例
-# suite = unittest.TestSuite()
-# suite.addTest(LaunchOperationCase("test_CreateQRCode"))
+suite = unittest.TestSuite()
+suite.addTest(LaunchLoginCase("test_LoginSucceed"))
 # suite.addTest(LaunchLoginCase("test_LoginFailedWithWrongUser"))
 
 case = []

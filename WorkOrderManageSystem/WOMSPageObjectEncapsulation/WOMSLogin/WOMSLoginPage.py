@@ -16,7 +16,7 @@ class LoginPageAction(BasePage):
     """
     Name        :  登入登出
     Author      :  Ken-Kei
-    Create Date :  2016/08/23
+    Create Date :  2016/12/30
     """
 
     def type_username(self, user):
@@ -50,13 +50,24 @@ class LoginPageAction(BasePage):
         self.type_password(password)
         self.click_login_button()
 
-    # def click_logout_button(self):
-    #     try:
-    #         self.click(LoginPageLocators.LOGOUTBUTTON)
-    #     except NoSuchElementException:
-    #         logging.error(LoginLogInfo.LOGOUTBUTTONNOTFOUND)
-    #     except Exception as e:
-    #         raise e
+    # 点击登出按钮
+    def click_logout_button(self):
+        try:
+            self.click(LoginPageLocators.LOGOUTBUTTON)
+        except NoSuchElementException:
+            logging.error(LoginLogInfo.LOGOUTBUTTONNOTFOUND)
+        except Exception as e:
+            raise e
 
-    # def logout(self):
-    #     self.click_logout_button()
+    # 点击登出按钮之后，点击确认
+    def click_logout_confirm_button(self):
+        try:
+            self.click(LoginPageLocators.LOGOUTCONFIRMBUTTON)
+        except NoSuchElementException:
+            logging.error(LoginLogInfo.LOGOUTCONFIRMBUTTONNOTFOUND)
+        except Exception as e:
+            raise e
+
+    def logout(self):
+        self.click_logout_button()
+        self.click_logout_confirm_button()

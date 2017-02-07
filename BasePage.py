@@ -13,8 +13,6 @@ from common import CommonUtils
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 import logging
 from selenium.common.exceptions import NoSuchElementException
-from selenium.common.exceptions import NoAlertPresentException
-from LogInfo import *
 from selenium.webdriver.support import expected_conditions as ec
 
 com = CommonUtils()
@@ -89,13 +87,13 @@ class BasePage(object):
         except:
             time.sleep(1)
 
-    # 对alert窗口作处理
-    def handle_alert(self):
-        try:
-            self.wait_alert_load_end()
-            self.driver.switch_to_alert().accept()
-        except NoAlertPresentException:
-            logging.error(PublicLogInfo.ALERTNOTFOUND)
+    # # 对alert窗口作处理
+    # def handle_alert(self):
+    #     try:
+    #         self.wait_alert_load_end()
+    #         self.driver.switch_to_alert().accept()
+    #     except NoAlertPresentException:
+    #         logging.error(PublicLogInfo.ALERTNOTFOUND)
 
     def get_driver(self):
         try:
@@ -208,58 +206,58 @@ class BasePage(object):
         except Exception as e:
             raise e
 
-    # 点击上传图片按钮
-    def click_upload_button(self, ele):
-        try:
-            self.click(ele)
-        except NoSuchElementException:
-            logging.error(PublicLogInfo.UPLOADNOTFOUND)
-        except Exception as e:
-            raise e
+    # # 点击上传图片按钮
+    # def click_upload_button(self, ele):
+    #     try:
+    #         self.click(ele)
+    #     except NoSuchElementException:
+    #         logging.error(PublicLogInfo.UPLOADNOTFOUND)
+    #     except Exception as e:
+    #         raise e
 
-    # 上传封面大图
-    def upload_pic(self, button_ele, ele, ele_locate, confrim_ele, log_content):
+    # # 上传封面大图
+    # def upload_pic(self, button_ele, ele, ele_locate, confrim_ele, log_content):
+    #
+    #     """
+    #     :param button_ele   : The upload button locator.
+    #     :param ele          : This is the upload locator which is the whole locator to upload image,
+    #                           e.g: (By.ID, "fileImage").
+    #     :param ele_locate   : Locator's attribute, e.g: "fileImage".
+    #     :param confrim_ele  : The confirm button locator.
+    #     :param log_content  : The log content will print when finish uploading image.
+    #     """
+    #
+    #     logging.info(PublicLogInfo.UPLOADINGBIGPIC % big_image_name)
+    #     self.click_upload_button(button_ele)
+    #     self.upload_image(ele, ele_locate, big_image_name)
+    #     self.click_confirm_button(confrim_ele)
+    #     logging.info(log_content)
+    #
+    # # 上传封面小图
+    # def upload_pic(self, button_ele, ele, ele_locate, confrim_ele):
+    #     logging.info(PublicLogInfo.UPLOADINGSMALLPIC % small_image_name)
+    #     self.click_upload_button(button_ele)
+    #     self.upload_image(ele, ele_locate, small_image_name)
+    #     self.click_confirm_button(confrim_ele)
+    #     logging.info(PublicLogInfo.UPLOADSMALLPICFIN)
 
-        """
-        :param button_ele   : The upload button locator.
-        :param ele          : This is the upload locator which is the whole locator to upload image,
-                              e.g: (By.ID, "fileImage").
-        :param ele_locate   : Locator's attribute, e.g: "fileImage".
-        :param confrim_ele  : The confirm button locator.
-        :param log_content  : The log content will print when finish uploading image.
-        """
-
-        logging.info(PublicLogInfo.UPLOADINGBIGPIC % big_image_name)
-        self.click_upload_button(button_ele)
-        self.upload_image(ele, ele_locate, big_image_name)
-        self.click_confirm_button(confrim_ele)
-        logging.info(log_content)
-
-    # 上传封面小图
-    def upload_pic(self, button_ele, ele, ele_locate, confrim_ele):
-        logging.info(PublicLogInfo.UPLOADINGSMALLPIC % small_image_name)
-        self.click_upload_button(button_ele)
-        self.upload_image(ele, ele_locate, small_image_name)
-        self.click_confirm_button(confrim_ele)
-        logging.info(PublicLogInfo.UPLOADSMALLPICFIN)
-
-    # 上传图片后点击确认
-    def click_confirm_button(self, ele):
-        try:
-            self.click(ele)
-        except NoSuchElementException:
-            logging.error(PublicLogInfo.CONFIRMNOTFOUND)
-        except Exception as e:
-            raise e
-
-    # 点击保存按钮
-    def click_save_button(self, ele):
-        try:
-            self.click(ele)
-        except NoSuchElementException:
-            logging.error(PublicLogInfo.SAVEBUTTONNOTFOUND)
-        except Exception as e:
-            raise e
+    # # 上传图片后点击确认
+    # def click_confirm_button(self, ele):
+    #     try:
+    #         self.click(ele)
+    #     except NoSuchElementException:
+    #         logging.error(PublicLogInfo.CONFIRMNOTFOUND)
+    #     except Exception as e:
+    #         raise e
+    #
+    # # 点击保存按钮
+    # def click_save_button(self, ele):
+    #     try:
+    #         self.click(ele)
+    #     except NoSuchElementException:
+    #         logging.error(PublicLogInfo.SAVEBUTTONNOTFOUND)
+    #     except Exception as e:
+    #         raise e
 
     # 验证是否成功创建对应内容
     def is_create_succeed(self, ele, event_name, sec_ele=None, sec_event_name=None):
@@ -291,11 +289,11 @@ class BasePage(object):
         except:
             return False
 
-    # 点击下拉框
-    def click_drop_down_list(self, ele):
-        try:
-            self.click(ele)
-        except NoSuchElementException:
-            logging.error(PublicLogInfo.DROPDOWNLISTNOTFOUND)
-        except Exception as e:
-            raise e
+    # # 点击下拉框
+    # def click_drop_down_list(self, ele):
+    #     try:
+    #         self.click(ele)
+    #     except NoSuchElementException:
+    #         logging.error(PublicLogInfo.DROPDOWNLISTNOTFOUND)
+    #     except Exception as e:
+    #         raise e
